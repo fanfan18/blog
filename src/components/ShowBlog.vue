@@ -19,14 +19,17 @@ export default {
     }
   },
   created(){
-   this.$http.get('blog/blog.json',this.blog)
-    .then(function(res){     
+    
+    var that = this
+   this.$http.get('/blog.json',this.blog)
+    .then(function(res){    
+    
       var blogsArray = [];
-       for(var key in res.body){        
-        res.body[key].id= key; 
-        blogsArray.push(res.body[key])
+       for(var key in res.data){        
+        res.data[key].id= key; 
+        blogsArray.push(res.data[key])
       }
-      this.blogs = blogsArray      
+      that.blogs = blogsArray      
     })
      
   }

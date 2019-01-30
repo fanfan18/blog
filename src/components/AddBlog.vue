@@ -51,18 +51,19 @@
             }
         },
         methods: {
-            submit() {                
-                this.$http.post('blog/blog.json',this.blog)
+            submit() {     
+                 var that = this           
+                this.$http.post('/blog.json',this.blog)
                 .then(function(res){                   
                     console.log(res)
-                    if(res.ok){
-                        this.$message({
+                    if(status == 200){
+                        that.$message({
                             showClose: true,
                             message: '恭喜你，新增成功',
                             type: 'success'
                         });
                     }else{
-                        this.$message({
+                        that.$message({
                             showClose: true,
                             message: '错了哦，新增失败',
                             type: 'error'

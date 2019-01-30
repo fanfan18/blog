@@ -34,8 +34,9 @@
             }
         },
         created(){
-            this.$http.get(`blog/blog/${this.id}.json`).then(function(data){               
-                this.blog = data.body
+            var that = this
+            this.$http.get(`/blog/${this.id}.json`).then(function(data){               
+                that.blog = data.data
             })
             
         }
