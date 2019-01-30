@@ -10,7 +10,17 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/blog': {                         // loca为匹配项        
+        target: "https://wd6425158212xaccax.wilddogio.com/", // 设置代理目标（域名）       
+        changeOrigin: true, // 如果接口跨域，需要进行这个参数配置        
+        pathRewrite: {          
+          '^/blog': ''                 
+         
+       }
+      }
+
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
