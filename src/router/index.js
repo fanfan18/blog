@@ -4,6 +4,7 @@ import Index from '@/pages/home/Index'
 import AddBlog from '@/components/AddBlog'
 import ShowBlog from '@/components/ShowBlog'
 import SingleBlog from '@/components/SingleBlog'
+import EditBlog from '@/components/EditBlog'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/singleblog/:id',
       name: 'single-blog',
       component: SingleBlog
+    },
+    {
+      path: '/editblog/:id',
+      name: 'edit-blog',
+      component: EditBlog
     }
   ]
 })
