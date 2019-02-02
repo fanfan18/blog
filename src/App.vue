@@ -42,26 +42,27 @@ export default {
   watch: {
     '$route' (to, from) {
       this.route = this.$route.path
-      if(this.$route.path == '/'){
-        console.log("home")
+      this.path(this.$route.path)
+    }
+  },
+  methods:{
+    path(path){
+      if(path == '/'){         
         this.homebcTransparent = true;
       }else {
         this.homebcTransparent = false;
       }
     }
-  },
-  methods:{
     
   },
-  created(){
-   console.log(this.$router)
-   
+  created(){    
+    this.path(this.$route.path)   
   }
 }
 </script>
 
 <style lang="scss"> 
-.homebcTransparent,{
+.homebcTransparent{
   background:transparent !important;
   transition:  all .5s;
   z-index: 3;

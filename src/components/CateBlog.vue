@@ -1,6 +1,6 @@
 <template>
     <el-main class="text-left">   
-        <el-container class="flex-column-xs">            
+        <el-container class="flex-column-xs container">            
             <el-aside class="cate-aside" width="150px">
                 <div class="cate-aside-nav bg-white">
                     <ul>
