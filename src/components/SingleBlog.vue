@@ -1,6 +1,6 @@
 <template>
     <el-main class="text-left">   
-        <el-container>     
+        <el-container class="container">     
                  
             <div class="text-center singleBlog p15" style="flex:1">                        
                 <h2>{{blog.title}}</h2>

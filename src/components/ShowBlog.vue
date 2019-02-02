@@ -3,9 +3,21 @@
    <div class="container"> 
       <div class="article-title">
         <h2 class="text-center">博客总览</h2>
-      </div>      
+      </div>   
+      <!-- 筛选 -->
+      <div class="flex-row flex-column-xs">
+        <!-- <el-form label-width="80px">
+         <el-form-item label="标题搜索"> -->
+           <div style="width:80%;margin:0 auto;margin-bottom:30px">
+             <el-input v-model="search" placeholder="请输入标题搜索" size='medium'></el-input>
+           </div>
+          
+        <!-- </el-form-item>
+        </el-form> -->
+      </div>
+      <!-- 筛选 end -->
       <el-table
-        :data="blogs"
+        :data="filterBlogs"
         style="width: 100%">
         <el-table-column
           prop="title"
@@ -49,6 +61,14 @@ export default {
   data () {
     return {
       blogs:[],
+      search:'',
+    }
+  },
+  computed: {
+    filterBlogs() {
+      return this.blogs.filter(blog=>{
+        return blog.title.match(this.search)
+      })
     }
   },
   methods:{
