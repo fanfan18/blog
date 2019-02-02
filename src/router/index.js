@@ -37,7 +37,7 @@ Vue.use(Router)
       component: EditBlog
     },
     {
-      path: '/cateblog/:id',
+      path: '/cateblog/',
       name: 'cate-blog',
       component: CateBlog
     }

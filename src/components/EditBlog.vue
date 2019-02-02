@@ -28,9 +28,9 @@
                 <el-select size="mini" v-model="blog.categories" placeholder="请选择">
                     <el-option size="mini"
                     v-for="item in categories"
-                    :key="item.id"
-                    :label="item.name"
-                    :value="item.name">
+                    :key="item"
+                    :label="item"
+                    :value="item">
                     </el-option>
                 </el-select>
             </el-form-item>   

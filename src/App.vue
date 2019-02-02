@@ -8,8 +8,8 @@
            
           <nav class="flex-row flex-middle">
             <ul class="flex-row">
-               <router-link to='/cateblog/1' tag='li'> <span>前端开发</span></router-link> 
-               <router-link to='/cateblog/2' tag='li'> <span>碎言碎语</span></router-link> 
+               <router-link to='/cateblog/?id=1' tag='li'> <span>前端开发</span></router-link> 
+               <router-link to='/cateblog/?id=2' tag='li'> <span>碎言碎语</span></router-link> 
                <router-link to='/showblog' tag='li'> <span>博客总览</span></router-link> 
                <router-link to='/addblog' tag='li'> <span>添加博客</span></router-link>             
             </ul>            

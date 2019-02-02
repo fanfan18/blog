@@ -4,14 +4,14 @@
             <el-aside class="cate-aside" width="150px">
                 <div class="cate-aside-nav bg-white">
                     <ul>
-                        <router-link to='/cateblog/1' tag='li'> <span>前端开发</span></router-link>
-                        <router-link to='/cateblog/2' tag='li'> <span>碎言碎语</span></router-link>
+                        <router-link to='/cateblog/?id=1' tag='li' @click.native="cate('1')"> <span>前端开发</span></router-link>
+                        <router-link to='/cateblog/?id=2' tag='li' @click.native="cate('2')"> <span>碎言碎语</span></router-link>
                     </ul>
                 </div>
             </el-aside>  
             <div class="text-center singleBlog p15" style="flex:1;margin-left:30px">                        
                 <div class="home-blogs">
-                    <div class="home-blog flex-row flex-column-xs" v-for="blog in blogs" :key="blog.id">
+                    <div class="home-blog flex-row flex-column-xs" v-for="blog in cateblogs" :key="blog.id">
                         <div class="blog-cover" :style="'background-image:url('+blog.cover+')'">
                             
                         </div>
@@ -45,12 +45,27 @@
         name:"cate-blog",
         data() {
             return {
-                id:this.$route.params.id,
-                blog:[],
+                id:this.$route.query.id,                
                 blogs:[],
+                cateblogs:[],
             }
         },
+        watch: {
+        '$route' (to, from) {
+            //这样就可以获取到变化的参数了，然后执行参数变化后相应的逻辑就行了            
+            this.cate(this.$route.query.id)
+        }
+        },
         methods:{
+            cate(id){
+                if(id == '1'){
+                    let list1 = this.blogs.filter(i=>i.categories==='前端开发')                    
+                    this.cateblogs = list1
+                }else if(id == '2'){
+                    let list2 = this.blogs.filter(i=>i.categories==='碎言碎语')                     
+                    this.cateblogs = list2
+                }
+            },
             showblogs(){
                 var that = this
                 this.$http.get('/blog.json')
@@ -60,27 +75,14 @@
                         res.data[key].id= key; 
                         blogsArray.push(res.data[key])
                     }
-                    that.blogs = blogsArray      
-                })
-
-                this.$http.get(`/blog/${this.id}.json`).then(function(data){               
-                    that.blog = data.data
-                })
+                    that.blogs = blogsArray    
+                    that.cate(that.$route.query.id)     
+                })                 
             },
-            query(id){
-                var that = this;
-                this.$http.get(`/blog/${id}.json`).then(function(data){               
-                    that.blog = data.data;
-                    //  document.body.scrollTop = 0;
-                     document.documentElement.scrollTop = 0;
-                })
-            }
+             
         },
         created(){
-            this.showblogs()
-            console.log(this.id)
-            
-            
+            this.showblogs()        
         }
     }
 </script>
