@@ -123,6 +123,7 @@ line-height: 30px;
     }
 }
 .el-container { background-color: #f5f7fa}
+.el-main { padding: 30px;}
 .article-title { 
     padding: 60px 0;
 }
@@ -152,6 +153,7 @@ line-height: 30px;
     .container {
     max-width: 960px;
     }
+     
 }
 
 @media (min-width: 1200px) {
@@ -159,7 +161,20 @@ line-height: 30px;
     max-width: 1140px;
     }
 }
-
+@media (max-width:992px){
+    .flex-column-xs,.el-container{
+        flex-direction: column !important;
+    }
+    aside,.singleBlog { 
+        margin-left: 0!important;
+        margin-top:30px !important;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+    .home-blogs .home-blog .blog-cover { width: 100% !important;}
+    .cate-aside ul li.router-link-exact-active:after,.cate-aside ul li:hover:after, { width: 100% !important}
+    .home-blogs .home-blog .blog-content { margin-left: 0 !important;margin-top: 5px !important}
+}
 .container-fluid {
     width: 100%;
     padding-right: 15px;
@@ -188,6 +203,7 @@ body{  margin:0;padding: 0;}
         .blog-cover { width: 250px; background-size: cover;background-position: center;height: 150px;}
         .blog-content { margin-left: 15px; font-size: 14px;
             .tags { 
+                margin-top: 5px;
                 .tag{
                     padding: 3px;margin: 3px; margin-left:0;color: #999;
                 }
@@ -209,7 +225,7 @@ body{  margin:0;padding: 0;}
     .blog-cover { width: 100px !important;height: 70px !important;}
 
 } 
-.view-more { @include themeBc();color: #fff;padding: 10px;transition:all .5s;padding-bottom:8px;margin-top:2px;
+.view-more { @include themeBc();color: #fff;    padding: 5px 10px;transition:all .5s;margin-top:2px;display: block;width:65px;
     &:hover{
         background: #333;color: #fff;
     }
@@ -221,5 +237,50 @@ body{  margin:0;padding: 0;}
 .topmargin-xs { margin-top: 15px;}
 .topmargin-sm { margin-top: 30px;}
 .notopmargin { margin-top: 0;}
+.point { cursor: pointer;}
+
+.cate-aside { 
+    overflow: visible;
+    ul {
+        padding-left: 0;margin:0;
+        li {
+            padding:15px;
+            text-align: center;
+            cursor: pointer;            
+            position: relative;
+            &:after {
+                content: '';
+                display: block;
+                width: 0px;
+                height: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                transition: all .5s;
+                @include themeBc()
+               
+            }
+            &.router-link-exact-active {
+                color:#fff;
+            }
+            &.router-link-exact-active:after {
+                
+                width: 160px;
+                @include themeBc()
+            }
+            &:hover:after{
+                width: 160px;
+            }
+            &:hover { color: #fff;}
+            span {
+                position: relative;
+                z-index: 2;
+            }
+ 
+        }
+    }
+}
+
+
 
   

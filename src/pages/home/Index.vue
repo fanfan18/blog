@@ -3,12 +3,12 @@
         <div class="home-banner">
 
         </div> 
-        <el-container class="p30">
+        <el-container class="p30 flex-column-xs">
             <el-main>
             <div class="home-blogs">
-                <div class="home-blog flex-row" v-for="blog in blogs" :key="blog.id">
+                <div class="home-blog flex-row flex-column-xs" v-for="blog in blogs" :key="blog.id">
                     <div class="blog-cover" :style="'background-image:url('+blog.cover+')'">
-                        <!-- <img :src="blog.cover" alt=""> -->
+                         
                     </div>
                     <div class="blog-content text-left">
                         <h2 class="color--333 nobottommargin notopmargin">{{blog.title}}</h2>
@@ -25,15 +25,12 @@
                             <div>
                                <router-link :to="'singleblog/'+blog.id" class="f12 view-more"> 阅读全文 <i class="el-icon-caret-right"></i> </router-link> 
                             </div>
-
-                        </div>
-                        
-                        
+                        </div>                        
                     </div>
                 </div> 
             </div>   
             </el-main>
-            <el-aside width="350px" style="margin-left:30px;">
+            <el-aside class="home-aside" width="350px" style="margin-left:30px;">
                 <div class="p15 bg-white">
                     <div>
                         <h2>博客简介</h2>
@@ -46,7 +43,7 @@
                         <h2>最近更新</h2>
                         <div class="home-blogs aside-blogs">
                             <div class="home-blog " v-for="blog in blogs" :key="blog.id">
-                                <router-link class="flex-row" :to="'singleblog/'+blog.id">
+                                <router-link class="flex-row flex-column-xs" :to="'singleblog/'+blog.id">
                                 <div class="blog-cover" :style="'background-image:url('+blog.cover+')'">
                                     <!-- <img :src="blog.cover" alt=""> -->
                                 </div>
@@ -113,11 +110,11 @@
 </script>
  <style lang="scss" scoped>
  
- .home-banner{
+.home-banner{
     min-height:500px;
     position: relative;
     top: -300px;margin-bottom: -300px;
-    background-image: url('/static/img/bg (1).jpg');
+    background-image: url('./../../../static/img/bg(1).jpg');
     background-size:cover;
     background-position: center;
     // transition: all .5s;
@@ -128,16 +125,15 @@
 @keyframes bc_change {
   from,   
   to {
-    background-image: url('/static/img/bg (2).jpg');
+    background-image: url('./../../../static/img/bg(2).jpg');
   }
   40%,
   43% {
-    background-image: url('/static/img/bg (3).jpg');
+    background-image: url('./../../../static/img/bg(3).jpg');
   } 
   90% {
-  background-image: url('/static/img/bg (4).jpg');
+  background-image: url('./../../../static/img/bg(4).jpg');
   }
 }
-
  </style>
   

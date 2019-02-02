@@ -25,7 +25,7 @@
         <el-table-column
           fixed="right"
           label="操作"
-          width="200">
+          width="110">
           <template slot-scope="scope">            
             <router-link :to="'/singleblog/'+scope.row.id"> 
               <el-button type="text" size="small">查看 </el-button>

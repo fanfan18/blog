@@ -19,7 +19,7 @@
                     <div ref="editor" style="text-align:left"></div>              
                 </el-form-item>             
                 <el-form-item label="博客标签" prop='tags'>
-                    <el-checkbox-group v-model="blog.tags"  >
+                    <el-checkbox-group v-model="blog.tags" :min="2">
                         <el-checkbox size="mini"
                         v-for="item in tags" :key="item" :label="item"
                         ></el-checkbox>                   
@@ -58,11 +58,11 @@ import E from 'wangeditor'
                     title:"",
                     content:"",
                     editorContent:'',
-                    tags:[],
+                    tags:['原创','笔记'],
                     categories:"",
                     creat_time:new Date()
                 },
-                tags:['原创','转载','干货','笔记'],
+                tags:['原创','笔记','转载','好文'],
                 categories:['前端开发','碎言碎语'],
                 rules: {
                     cover: [

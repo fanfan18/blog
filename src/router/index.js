@@ -5,10 +5,11 @@ import AddBlog from '@/components/AddBlog'
 import ShowBlog from '@/components/ShowBlog'
 import SingleBlog from '@/components/SingleBlog'
 import EditBlog from '@/components/EditBlog'
+import CateBlog from '@/components/CateBlog'
 
 Vue.use(Router)
 
-export default new Router({
+ var router = new Router({
   routes: [
     {
       path: '/',
@@ -34,6 +35,21 @@ export default new Router({
       path: '/editblog/:id',
       name: 'edit-blog',
       component: EditBlog
+    },
+    {
+      path: '/cateblog/:id',
+      name: 'cate-blog',
+      component: CateBlog
     }
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    // return 期望滚动到哪个的位置
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
+  }
 })
+ 
+export default router
