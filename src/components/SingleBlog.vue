@@ -15,7 +15,7 @@
                 <div class="p15 bg-white">
                    <div class="home-blogs aside-blogs">
                         <div class="home-blog " v-for="blog in blogs" :key="blog.id">
-                            <div class="flex-row point" @click="query(blog.id)">
+                            <div class="flex-row flex-column-xs point" @click="query(blog.id)">
                             <div class="blog-cover" :style="'background-image:url('+blog.cover+')'">                                     
                             </div>
                             <div class="blog-content text-left">
